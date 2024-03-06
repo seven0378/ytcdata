@@ -1,11 +1,23 @@
 $(function () {
-    Retrieve();
+    
+       //URL
+       var url = location.href;
+    
+       //取得問號之後的值
+       var temp = url.split("?");
+   
+       //將值再度分開
+       var vars = temp[1].split("&");
+   
+       //一一顯示出來
+       //alert(vars[0]);
+       Retrieve(vars[0]);
 });
 
-function Retrieve() {
+function Retrieve(pdata) {
     var dataArray = [];
     var script_url = 'https://script.google.com/macros/s/AKfycbwliz9svV0VF0K9VayD9c5eVXEQvl55hPqjpYZ_MGdq9-4sf3u3RJQe-G2yNS2IFVUB/exec';
-    var URL= script_url + "?action=ytcout";
+    var URL= script_url + "?action=ytcorder&"+ pdata;
     //var URL = 'https://script.google.com/macros/s/AKfycbybz7qFJsUP6T4EiSgbIVGhcNXrDmEqtztKwc5fZGsnv3pcdiKOvFNR6NFwrlcmoysk/exec';
     $.ajax({
         url: URL,
@@ -17,14 +29,14 @@ function Retrieve() {
         success: function (Jdata) {
             var Info = Jdata.data;
             for (i = 0; Info.length > i; i++) {
-                pdoName = Info[i].pdoName;
+                
                 pdate = Info[i].pdate;
                 pcode = Info[i].pcode;
                 pname = Info[i].pname;
+                porder = Info[i].porder;
                 pnum = Info[i].pnum;
                 pmemo = Info[i].pmemo;
-                podd = Info[i].podd;
-                poddnum = Info[i].poddnum;
+
                 // 印出資料
                 print();
             };
@@ -33,14 +45,13 @@ function Retrieve() {
             function print() {
                 $("#table-data").append(
                     '<tr>' +
-                    '<td class="w-5">' + pdoName + '</td>' +
-                    '<td class="w-8">' + pdate + '</td>' +
-                    '<td class="w-10"><a href="part_order.html?pcode='+ pcode+'" target="view_window">' + pcode + '</a></td>' +
+                                 
+                    '<td class="w-10">' + pcode + '</td>' +
                     '<td class="w-20">' + pname + '</td>' +
+                    '<td class="w-10">' + porder + '</td>' +
+                    '<td class="w-8">' + pdate + '</td>' +
                     '<td class="w-5">' + pnum + '</td>' +
                     '<td class="w-10">' + pmemo + '</td>' +
-                    '<td class="w-10">' + podd + '</td>' +
-                    '<td class="w-10">' + poddnum + '</td>' +
                     '</tr>'
                 );
             };
