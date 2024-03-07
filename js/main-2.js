@@ -17,7 +17,7 @@ $(function () {
 function Retrieve(pdata) {
     var dataArray = [];
     var script_url = 'https://script.google.com/macros/s/AKfycbwliz9svV0VF0K9VayD9c5eVXEQvl55hPqjpYZ_MGdq9-4sf3u3RJQe-G2yNS2IFVUB/exec';
-    var URL= script_url + "?action=ytcorder&"+ pdata;
+    var URL= script_url + "?action=ytcorder&"+ "pdata=xyz";
     //var URL = 'https://script.google.com/macros/s/AKfycbybz7qFJsUP6T4EiSgbIVGhcNXrDmEqtztKwc5fZGsnv3pcdiKOvFNR6NFwrlcmoysk/exec';
     $.ajax({
         url: URL,

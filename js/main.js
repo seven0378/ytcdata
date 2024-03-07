@@ -4,7 +4,7 @@ $(function () {
 
 function Retrieve() {
     var dataArray = [];
-    var script_url = 'https://script.google.com/macros/s/AKfycbwliz9svV0VF0K9VayD9c5eVXEQvl55hPqjpYZ_MGdq9-4sf3u3RJQe-G2yNS2IFVUB/exec';
+    var script_url = 'https://script.google.com/macros/s/AKfycbzKqvYggYViRerAZ8s-IXMTBueU-9IZ5QBBkA08jLwPzwtN48R05WnxKHNG4h5N9j8i/exec';
     var URL= script_url + "?action=ytcout";
     //var URL = 'https://script.google.com/macros/s/AKfycbybz7qFJsUP6T4EiSgbIVGhcNXrDmEqtztKwc5fZGsnv3pcdiKOvFNR6NFwrlcmoysk/exec';
     $.ajax({
@@ -35,7 +35,8 @@ function Retrieve() {
                     '<tr>' +
                     '<td class="w-5">' + pdoName + '</td>' +
                     '<td class="w-8">' + pdate + '</td>' +
-                    '<td class="w-10"><a href="part_order.html?pcode='+ pcode+'" target="view_window">' + pcode + '</a></td>' +
+                   //'<td class="w-10"><a href="part_order.html?pcode='+ pcode+'" target="view_window">' + pcode + '</a></td>' +
+                    '<td class="w-10">' + pcode + '</td>' +
                     '<td class="w-20">' + pname + '</td>' +
                     '<td class="w-5">' + pnum + '</td>' +
                     '<td class="w-10">' + pmemo + '</td>' +
