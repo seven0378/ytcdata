@@ -6,6 +6,7 @@ function Retrieve() {
     var dataArray = [];
     var script_url = 'https://script.google.com/macros/s/AKfycbzKqvYggYViRerAZ8s-IXMTBueU-9IZ5QBBkA08jLwPzwtN48R05WnxKHNG4h5N9j8i/exec';
     var URL= script_url + "?action=ytcout";
+    var URL2="https://script.google.com/macros/s/AKfycbzvsny6U-O75QS1lZt8VDGmWms0Zl78z9w5gPuy7PiU5sSFzom4xo7Gl_og3Z-cGvMf/exec";
     //var URL = 'https://script.google.com/macros/s/AKfycbybz7qFJsUP6T4EiSgbIVGhcNXrDmEqtztKwc5fZGsnv3pcdiKOvFNR6NFwrlcmoysk/exec';
     $.ajax({
         url: URL,
@@ -35,8 +36,8 @@ function Retrieve() {
                     '<tr>' +
                     '<td class="w-5">' + pdoName + '</td>' +
                     '<td class="w-8">' + pdate + '</td>' +
-                   //'<td class="w-10"><a href="part_order.html?pcode='+ pcode+'" target="view_window">' + pcode + '</a></td>' +
-                    '<td class="w-10">' + pcode + '</td>' +
+                    '<td class="w-10"><a href='+ URL2 +'?action=ytcpart&pcode='+ part(pcode) +' target="view_window">' + pcode + '</a></td>' +
+                    //'<td class="w-10">' + pcode + '</td>' +
                     '<td class="w-20">' + pname + '</td>' +
                     '<td class="w-5">' + pnum + '</td>' +
                     '<td class="w-10">' + pmemo + '</td>' +
@@ -89,7 +90,19 @@ function Retrieve() {
                     $(this).hide();
                   }
                 });
-              }
+            }
+
+            
+            
+            function part(pcode){
+ 
+                let specialChars = pcode;
+                let encodedString = encodeURIComponent(specialChars);
+                return encodedString
+            
+            }
+            
+              
             
         }
     });
